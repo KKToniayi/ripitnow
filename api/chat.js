@@ -7,7 +7,11 @@ module.exports = async function handler(req, res) {
   }
   let body = req.body;
   if (typeof body === 'string') { body = JSON.parse(body); }
-  const messages = [{ role: 'system', content: body.system || '' }].concat(body.messages || []);
+  const sysMsg = { role: 'system', content: body.system || '' };
+  const userMsgs = (body.messages || []).map(function(m) {
+    return { role: m.role === 'user' ? 'user' : 'assistant', content: m.content };
+  });
+  const messages = [sysMsg].concat(userMsgs);
   const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
     method: 'POST',
     headers: {
