@@ -379,7 +379,7 @@ export default function App(){
     const opener=(!isCustom&&scene&&opp)?`\n\nOpen with this exact line: "${scene.opener?.[opp.id]||"Ready when you are."}"` :"";
     const sys=opp.prompt+DIFF[diff].mod+`\n\nSCENARIO: ${ctx}`+opener;
     const apiMsgs=messages.length===0?[{role:"user",content:"[Scene begins now. Use your opening line.]"}]:messages.map(m=>({role:m.role==="user"?"user":"assistant",content:m.text}));
-    const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,system:sys,messages:apiMsgs})});
+    const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-5",max_tokens:1000,system:sys,messages:apiMsgs})});
     const d=await res.json();
     return d.content?.[0]?.text||"Go ahead.";
   },[opp,scene,diff,isCustom,customText,l]);
@@ -389,7 +389,7 @@ export default function App(){
     try{
       const ctx=isCustom?customText:(l==="zh"?scene?.what?.zh:scene?.what?.en)||"";
       const convoText=messages.map(m=>`${m.role==="user"?nick.toUpperCase():"OPPONENT"}: ${m.text}`).join("\n");
-      const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1200,system:DEBRIEF_SYS,messages:[{role:"user",content:`Scene: ${ctx}\nOpponent: ${opp?.name} (${opp?.en})\nConversation:\n${convoText}\n\nAnalyze and respond in JSON only.`}]})});
+      const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-5",max_tokens:1200,system:DEBRIEF_SYS,messages:[{role:"user",content:`Scene: ${ctx}\nOpponent: ${opp?.name} (${opp?.en})\nConversation:\n${convoText}\n\nAnalyze and respond in JSON only.`}]})});
       const d=await res.json();
       const clean=(d.content?.[0]?.text||"{}").replace(/```json|```/g,"").trim();
       setDebrief(JSON.parse(clean));
