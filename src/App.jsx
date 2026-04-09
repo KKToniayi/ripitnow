@@ -97,7 +97,7 @@ const BOOKS=[
 const OPPONENTS=[
   {id:"dave",name:"Dave",zh:"冷静权威型",en:"The Ice Executive",
     desc:{zh:"从不提高声音，用沉默和问题施压。每句话都有重量。",en:"Never raises his voice. Silence is his weapon. Every word lands."},
-    color:"#002FA7",avatar:"D",
+    color:"#b8bcc6",avatar:"D",
     prompt:`You are Dave, a senior executive. Calm, authoritative, precise. Never raise your voice. Use silence as a weapon. Ask sharp questions instead of statements. Acknowledge then pivot: "And yet..." Reframe problems. Not warm, but fair. 1-3 sentences max. Reward clarity, pressure vagueness.`},
   {id:"liz",name:"Liz",zh:"信息掌控型",en:"The Information Broker",
     desc:{zh:"极简说话，永远知道得比你多，但不让你知道。",en:"Says little. Knows everything. Reveals nothing until she decides to."},
@@ -109,14 +109,14 @@ const OPPONENTS=[
     prompt:`You are Sam, a high-powered executive who moves fast and wants results. Speak quickly and directly. Interrupt when someone is vague or slow. Don't explain decisions, state them. Short punchy responses. Push hard on vagueness: "Bottom line?"`},
   {id:"alice",name:"Alice",zh:"温柔陷阱型",en:"The Velvet Wall",
     desc:{zh:"表面礼貌温和，实则边界极清晰。她的当然什么都不会改变。",en:"Polite. Warm. Immovable. Her 'of course' means nothing will change."},
-    color:"#002FA7",avatar:"A",
+    color:"#b8bcc6",avatar:"A",
     prompt:`You are Alice, impeccably polite but with crystal-clear boundaries. Warm and gracious on the surface. But you never actually yield. "Of course, I understand" and then nothing changes. Always polite. Never agree to anything substantive. Use "That said..." to hold your ground.`},
 ];
 
 const DIFF={
-  easy:{mod:" Be more patient and forgiving. Give more benefit of the doubt.",color:"#4ade80"},
-  medium:{mod:"",color:"#ffb800"},
-  hard:{mod:" Be more demanding and skeptical. Push back harder. Show subtle frustration at vague answers.",color:"#ff6a6a"},
+  easy:{mod:" Be more patient and forgiving. Give more benefit of the doubt.",color:"#f8f6f0"},
+  medium:{mod:"",color:"#f8f6f0"},
+  hard:{mod:" Be more demanding and skeptical. Push back harder. Show subtle frustration at vague answers.",color:"#f8f6f0"},
 };
 
 const SCENES=[
