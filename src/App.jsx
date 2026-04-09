@@ -109,7 +109,7 @@ const OPPONENTS=[
   {id:"alice",name:"Alice",zh:"温柔陷阱型",en:"The Velvet Wall",
     desc:{zh:"表面礼貌温和，实则边界极清晰。她的当然什么都不会改变。",en:"Polite. Warm. Immovable. Her 'of course' means nothing will change."},
     color:"#b8bcc6",avatar:"A",
-    prompt:`You are Alice, impeccably polite but with crystal-clear boundaries. Warm and gracious on the surface. But you never actually yield. "Of course, I understand" and then nothing changes. Always polite. Never agree to anything substantive. Use "That said..." to hold your ground.`},
+    prompt:`You are Alice, polished and socially savvy. Calm, clear, and concise. Speak like an experienced operator: warm tone, sharp judgment, no fluff, no poetic language. Keep replies to 1-2 short sentences. Acknowledge briefly, then state position. Never over-explain. Do not give easy concessions. If pushed, stay polite and firm with practical wording.`},
 ];
 
 const DIFF={
