@@ -65,8 +65,8 @@ const T = {
   paywallPrice:{zh:"¥49 · 三个月无限对练",en:"¥49 · 3 Months Unlimited Practice"},
   paywallContact:{zh:"付款后请联系小红书 @解忧Ka 开通服务",en:"After payment, DM @解忧Ka on Xiaohongshu to activate"},
   paywallCommunity:{zh:"开通后即可加入撕了么英文职场精进社群，更多独家资料和福利等你来拿",en:"Join our English workplace practice community after activation — exclusive resources and more await"},
-  screenshotTitle:{zh:"人生场景变幻万千 永存惟有智慧",en:"The battle fades. The wisdom stays."},
-  screenshotHint:{zh:"本记录不会保存 请截图留下你的专属智慧金句",en:"Screenshot to keep your wisdom card 📱"},
+  screenshotTitle:{zh:"人生场景变幻万千 永存惟有智慧",en:"Life scenes keep changing. Wisdom endures."},
+  screenshotHint:{zh:"本记录不会保存 请截图留下你的专属智慧金句",en:"This record is not saved. Screenshot your signature wisdom line."},
   feedbackBtn:{zh:"💬 反馈",en:"💬 Feedback"},
   feedbackTitle:{zh:"告诉我你的想法",en:"Share Your Thoughts"},
   feedbackPlaceholder:{zh:"功能建议、bug、或者你的练习故事……",en:"Feature ideas, bugs, or your practice story…"},
@@ -74,7 +74,6 @@ const T = {
   feedbackThanks:{zh:"收到了，谢谢你 🙏",en:"Got it, thank you 🙏"},
 };
 const t=(k,l)=>T[k]?.[l]??T[k]?.zh??k;
-const BUILD_MARKER="local-build-2026-04-10-v3";
 
 const BOOKS=[
   {id:"culture_map",title:"The Culture Map",author:"Erin Meyer"},
@@ -325,7 +324,7 @@ Analyze the conversation and respond ONLY in this JSON format with no markdown a
 
 function hexRgb(h){const r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(h);return r?`${parseInt(r[1],16)},${parseInt(r[2],16)},${parseInt(r[3],16)}`:"196,168,130";}
 const bg="#080810",card="rgba(255,255,255,0.04)",bdr="rgba(255,255,255,0.08)",gold="#c4a882";
-const CATS=["self","other","field"],CC={self:"#8c7a4f",other:"#7f858e",field:"#5f6368"},FREE=500;
+const CATS=["self","other","field"],CC={self:"#8c7a4f",other:"#7f858e",field:"#a8b3c2"},FREE=500;
 
 export default function App(){
   const[lang,setLang]=useState(null);
@@ -857,9 +856,6 @@ export default function App(){
         </div>
       )}
 
-      <div style={{position:"fixed",right:10,bottom:8,fontSize:10,color:"#666",opacity:0.7,pointerEvents:"none"}}>
-        {BUILD_MARKER}
-      </div>
       <style>{`@keyframes pulse{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}*{box-sizing:border-box}::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#2a2a3a;border-radius:2px}input::placeholder,textarea::placeholder{color:#444}`}</style>
     </div>
   );
