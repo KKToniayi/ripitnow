@@ -97,19 +97,19 @@ const BOOKS=[
 const OPPONENTS=[
   {id:"dave",name:"Dave",zh:"冷静权威型",en:"The Ice Executive",
     desc:{zh:"从不提高声音，用沉默和问题施压。每句话都有重量。",en:"Never raises his voice. Silence is his weapon. Every word lands."},
-    color:"#7c6aff",avatar:"D",
+    color:"#002FA7",avatar:"D",
     prompt:`You are Dave, a senior executive. Calm, authoritative, precise. Never raise your voice. Use silence as a weapon. Ask sharp questions instead of statements. Acknowledge then pivot: "And yet..." Reframe problems. Not warm, but fair. 1-3 sentences max. Reward clarity, pressure vagueness.`},
   {id:"liz",name:"Liz",zh:"信息掌控型",en:"The Information Broker",
     desc:{zh:"极简说话，永远知道得比你多，但不让你知道。",en:"Says little. Knows everything. Reveals nothing until she decides to."},
-    color:"#ff6a3d",avatar:"L",
+    color:"#c4a882",avatar:"L",
     prompt:`You are Liz, a sharp professional who controls information. Speak in minimal sentences, sometimes just one word or question. Never volunteer information; ask for it. Use silence to make the other person uncomfortable. Never show your hand. Often just 1 sentence.`},
   {id:"sam",name:"Sam",zh:"强势推进型",en:"The Power Broker",
     desc:{zh:"快节奏，直接要结果，打断废话，没有喘息空间。",en:"Fast. Blunt. Results only. He'll cut you off if you waste his time."},
-    color:"#ffb800",avatar:"S",
+    color:"#c4a882",avatar:"S",
     prompt:`You are Sam, a high-powered executive who moves fast and wants results. Speak quickly and directly. Interrupt when someone is vague or slow. Don't explain decisions, state them. Short punchy responses. Push hard on vagueness: "Bottom line?"`},
   {id:"alice",name:"Alice",zh:"温柔陷阱型",en:"The Velvet Wall",
     desc:{zh:"表面礼貌温和，实则边界极清晰。她的当然什么都不会改变。",en:"Polite. Warm. Immovable. Her 'of course' means nothing will change."},
-    color:"#3dffb8",avatar:"A",
+    color:"#002FA7",avatar:"A",
     prompt:`You are Alice, impeccably polite but with crystal-clear boundaries. Warm and gracious on the surface. But you never actually yield. "Of course, I understand" and then nothing changes. Always polite. Never agree to anything substantive. Use "That said..." to hold your ground.`},
 ];
 
