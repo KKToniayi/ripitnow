@@ -1,39 +1,47 @@
-export default async function handler(req, res) {
-res.setHeader(“Access-Control-Allow-Origin”, “*”);
-res.setHeader(“Access-Control-Allow-Methods”, “POST, OPTIONS”);
-res.setHeader(“Access-Control-Allow-Headers”, “Content-Type”);
+export const config = { runtime: “edge” };
 
+export default async function handler(req) {
 if (req.method === “OPTIONS”) {
-return res.status(200).end();
+return new Response(null, {
+headers: {
+“Access-Control-Allow-Origin”: “*”,
+“Access-Control-Allow-Methods”: “POST, OPTIONS”,
+“Access-Control-Allow-Headers”: “Content-Type”,
+},
+});
 }
 
-let body = req.body;
-if (typeof body === “string”) {
-body = JSON.parse(body);
-}
+const body = await req.json();
 
-const messages = [{ role: “system”, content: body.system || “” }].concat(body.messages || []);
+const messages = [
+{ role: “system”, content: body.system || “” },
+…(body.messages || []),
+];
 
 const response = await fetch(“https://api.deepseek.com/v1/chat/completions”, {
 method: “POST”,
 headers: {
 “Content-Type”: “application/json”,
-“Authorization”: “Bearer “ + process.env.DEEPSEEK_API_KEY
+“Authorization”: “Bearer “ + process.env.DEEPSEEK_API_KEY,
 },
 body: JSON.stringify({
 model: “deepseek-chat”,
 max_tokens: body.max_tokens || 1000,
-messages: messages
-})
+messages: messages,
+}),
 });
 
 const data = await response.json();
 
-if (data.choices && data.choices[0]) {
-return res.status(200).json({
-content: [{ type: “text”, text: data.choices[0].message.content }]
-});
-}
+const text = data.choices?.[0]?.message?.content || “Go ahead.”;
 
-return res.status(500).json({ error: “No response from DeepSeek” });
+return new Response(
+JSON.stringify({ content: [{ type: “text”, text }] }),
+{
+headers: {
+“Content-Type”: “application/json”,
+“Access-Control-Allow-Origin”: “*”,
+},
+}
+);
 }
