@@ -622,7 +622,7 @@ export default function App(){
             {scene.phrases.map((p,i)=>(
               <div key={i} style={{marginBottom:i<scene.phrases.length-1?12:0}}>
                 <div style={{fontSize:13,color:gold,fontStyle:"italic",marginBottom:3}}>{p}</div>
-                {l==="zh"&&<div style={{fontSize:11,color:"#8b7355"}}>{scene.phrasesZh[i]}</div>}
+                {l==="zh"&&<div style={{fontSize:11,color:"#c8c0b0"}}>{scene.phrasesZh[i]}</div>}
               </div>
             ))}
           </div>
@@ -717,7 +717,7 @@ export default function App(){
               {scene.phrases.map((p,i)=>(
                 <div key={i} style={{marginBottom:i<scene.phrases.length-1?8:0}}>
                   <div style={{fontSize:11,color:gold,fontStyle:"italic"}}>{p}</div>
-                  {l==="zh"&&<div style={{fontSize:10,color:"#8b7355"}}>{scene.phrasesZh[i]}</div>}
+                  {l==="zh"&&<div style={{fontSize:10,color:"#c8c0b0"}}>{scene.phrasesZh[i]}</div>}
                 </div>
               ))}
             </div>
