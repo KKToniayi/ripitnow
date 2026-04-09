@@ -325,7 +325,7 @@ Analyze the conversation and respond ONLY in this JSON format with no markdown a
 
 function hexRgb(h){const r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(h);return r?`${parseInt(r[1],16)},${parseInt(r[2],16)},${parseInt(r[3],16)}`:"196,168,130";}
 const bg="#080810",card="rgba(255,255,255,0.04)",bdr="rgba(255,255,255,0.08)",gold="#c4a882";
-const CATS=["self","other","field"],CC={self:"#7c6aff",other:"#ff6a3d",field:"#ffb800"},FREE=500;
+const CATS=["self","other","field"],CC={self:"#8c7a4f",other:"#7f858e",field:"#5f6368"},FREE=500;
 
 export default function App(){
   const[lang,setLang]=useState(null);
@@ -547,7 +547,6 @@ export default function App(){
             <h1 style={{fontSize:"clamp(28px,6vw,42px)",fontWeight:700,margin:"0 0 6px",letterSpacing:"-0.02em"}}>{t("brand",l)}</h1>
             <p style={{color:"#8b7355",fontSize:13,margin:"0 0 10px"}}>{t("tagline",l)}</p>
             <p style={{fontSize:12,color:"rgba(196,168,130,0.4)",fontStyle:"italic",margin:"0 0 6px"}}>{t("mantra",l)}</p>
-            <p style={{fontSize:11,color:"#444"}}>{t("firstTime",l)}</p>
           </div>
           {freeLeft>0&&<div style={{textAlign:"center",marginBottom:14,fontSize:12,color:"#555"}}>{l==="zh"?`还有 ${freeLeft} 次免费体验`:`${freeLeft} free sessions left`}</div>}
           <div style={{fontSize:11,letterSpacing:"0.25em",color:"#8b7355",textTransform:"uppercase",marginBottom:10}}>{t("selectScene",l)}</div>
@@ -637,6 +636,7 @@ export default function App(){
           <button onClick={()=>{setPhase("scene");setShowCustomIn(isCustom);}} style={{background:"none",border:"none",color:"#555",cursor:"pointer",fontSize:13,marginBottom:24,fontFamily:"inherit"}}>{t("back",l)}</button>
           <div style={{fontSize:11,color:gold,marginBottom:6,fontStyle:"italic"}}>{isCustom?(l==="zh"?"你的战场":"Your Scene"):(l==="zh"?scene?.zh:scene?.en)}</div>
           <h2 style={{fontSize:20,fontWeight:600,margin:"0 0 24px"}}>{t("selectOpponent",l)}</h2>
+          <p style={{fontSize:11,color:"#555",margin:"-10px 0 16px"}}>{t("firstTime",l)}</p>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:20}}>
             {OPPONENTS.map(o=>(
               <button key={o.id} onClick={()=>setOpp(o)}
