@@ -12,42 +12,30 @@ if (typeof body === “string”) {
 body = JSON.parse(body);
 }
 
-// Convert to DeepSeek format
-const deepseekBody = {
-model: “deepseek-chat”,
-max_tokens: body.max_tokens || 1000,
-system: body.system,
-messages: body.messages
-};
-
-console.log(“Sending to DeepSeek:”, JSON.stringify(deepseekBody).slice(0, 200));
+const messages = [
+{ role: “system”, content: body.system || “” }
+].concat(body.messages || []);
 
 const response = await fetch(“https://api.deepseek.com/v1/chat/completions”, {
 method: “POST”,
 headers: {
 “Content-Type”: “application/json”,
-“Authorization”: `Bearer ${process.env.DEEPSEEK_API_KEY}`
+“Authorization”: “Bearer “ + process.env.DEEPSEEK_API_KEY
 },
 body: JSON.stringify({
 model: “deepseek-chat”,
 max_tokens: body.max_tokens || 1000,
-messages: [
-{ role: “system”, content: body.system || “” },
-…body.messages
-]
+messages: messages
 })
 });
 
 const data = await response.json();
-console.log(“DeepSeek response status:”, response.status);
 
-// Convert DeepSeek response format to Anthropic format
 if (data.choices && data.choices[0]) {
-const converted = {
+return res.status(200).json({
 content: [{ type: “text”, text: data.choices[0].message.content }]
-};
-return res.status(200).json(converted);
+});
 }
 
-return res.status(response.status).json(data);
+return res.status(500).json({ error: “No response from DeepSeek” });
 }
