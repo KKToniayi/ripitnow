@@ -60,7 +60,7 @@ const T = {
   catDesc2:{zh:"倾听、读人、建立信任",en:"Empathy, listening, trust"},
   catDesc3:{zh:"主导节奏、控制叙事",en:"Own the room, control the narrative"},
   noOpp:{zh:"请先选择一个对手",en:"Please select an opponent"},
-  paywallTitle:{zh:"你的5次免费体验已用完",en:"Your 5 free sessions are up"},
+  paywallTitle:{zh:"你的免费体验已用完",en:"Your free sessions are up"},
   paywallSub:{zh:"三个月，把职场英文说话的底气练出来",en:"3 months. Build the confidence to speak up at work."},
   paywallPrice:{zh:"¥49 · 三个月无限对练",en:"¥49 · 3 Months Unlimited Practice"},
   paywallContact:{zh:"付款后请联系小红书 @解忧Ka 开通服务",en:"After payment, DM @解忧Ka on Xiaohongshu to activate"},
@@ -324,7 +324,7 @@ Analyze the conversation and respond ONLY in this JSON format with no markdown a
 
 function hexRgb(h){const r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(h);return r?`${parseInt(r[1],16)},${parseInt(r[2],16)},${parseInt(r[3],16)}`:"196,168,130";}
 const bg="#080810",card="rgba(255,255,255,0.04)",bdr="rgba(255,255,255,0.08)",gold="#c4a882";
-const CATS=["self","other","field"],CC={self:"#7c6aff",other:"#ff6a3d",field:"#ffb800"},FREE=5;
+const CATS=["self","other","field"],CC={self:"#7c6aff",other:"#ff6a3d",field:"#ffb800"},FREE=500;
 
 export default function App(){
   const[lang,setLang]=useState(null);
