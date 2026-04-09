@@ -12,9 +12,7 @@ if (typeof body === “string”) {
 body = JSON.parse(body);
 }
 
-const messages = [
-{ role: “system”, content: body.system || “” }
-].concat(body.messages || []);
+const messages = [{ role: “system”, content: body.system || “” }].concat(body.messages || []);
 
 const response = await fetch(“https://api.deepseek.com/v1/chat/completions”, {
 method: “POST”,
